@@ -8,7 +8,7 @@
         public string CompanyCity { get; set;}
         public string CompanyState { get; set; }
         public string CompanyZipCode { get;set; }
-        public string Observation { get; set; }
+        public string CompanyEnail { get; set; }
         public int IdContactPerson { get; set; }
     }
 }

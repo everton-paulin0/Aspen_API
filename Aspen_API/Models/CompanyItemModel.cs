@@ -2,7 +2,7 @@
 {
     public class CompanyItemModel
     {
-        public CompanyItemModel(int id, string companyName, string companyDocNumber, string companyAddress, string companyCity, string companyState, string companyZipCode)
+        public CompanyItemModel(int id, string companyName, string companyDocNumber, string companyAddress, string companyCity, string companyState, string companyZipCode, string companyEmail)
         {
             Id = id;
             CompanyName = companyName;
@@ -11,6 +11,7 @@
             CompanyCity = companyCity;
             CompanyState = companyState;
             CompanyZipCode = companyZipCode;
+            CompanyEmail = companyEmail;
         }
 
         public int Id { get; set; }
@@ -20,6 +21,7 @@
         public string CompanyCity { get; set; }
         public string CompanyState { get; set; }
         public string CompanyZipCode { get; set; }
-       
+        public string CompanyEmail { get; set; }
+
     }
 }

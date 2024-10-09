@@ -47,9 +47,8 @@ namespace Aspen_API.Persistence
 
                 e.HasOne(c => c.FullName)
                 .WithMany(c=> c.Companies)
-                .HasForeignKey(c => c.IdUser)
+                .HasForeignKey(c=> c.IdContactPerson)
                 .OnDelete(DeleteBehavior.Restrict);
-                
             });
 
 
