@@ -18,7 +18,7 @@ namespace Aspen_API.Controllers
         [HttpPost]
         public IActionResult Post (CreateUserInputModel model)
         {
-            var user = new User(model.FullName, model.BirthDate, model.MobilePhone, model.Email, model.IdCompany);
+            var user = new User(model.FullName, model.Email, model.BirthDate, model.MobilePhone, model.IdCompany);
 
             return Ok();
         }
@@ -32,6 +32,8 @@ namespace Aspen_API.Controllers
             {
                 return NotFound();
             }
+
+            return NoContent();
         }    
 
     }
