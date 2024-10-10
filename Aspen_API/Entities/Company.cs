@@ -34,7 +34,7 @@ namespace Aspen_API.Entities
         public CompanyStatusEnum Status { get; set; }
         public List<CompanyComment> Comments { get; set; }
 
-        public void Update(string companyName, string companyDocNumber, string companyAddress, string companyCity, string companyState, string companyZipCode, string companyEmail)
+        public void Update(string companyName, string companyDocNumber, string companyAddress, string companyCity, string companyState, string companyZipCode, string companyEmail, int idUser, int idContactPerson)
         {
             CompanyName = companyName;
             CompanyDocNumber = companyDocNumber;
@@ -43,6 +43,8 @@ namespace Aspen_API.Entities
             CompanyState = companyState;
             CompanyZipCode = companyZipCode;
             CompanyEmail = companyEmail;
+            IdUser = idUser;
+            IdContactPerson = idContactPerson;
             UpdateAt = DateTime.Now;
 
         }

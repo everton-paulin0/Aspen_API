@@ -1,4 +1,6 @@
-﻿namespace Aspen_API.Models
+﻿using Aspen_API.Enums;
+
+namespace Aspen_API.Models
 {
     public class UpdateCompanyInputModel
     {
@@ -9,6 +11,10 @@
         public string CompanyCity { get; set; }
         public string CompanyState { get; set; }
         public string CompanyZipCode { get; set; }
-        public string Observation { get; set; }
+        public string CompanyEmail { get; set; }
+        public int IdUser { get; set; }
+        public int IdContactPerson { get; set; }
+        public CompanyStatusEnum Status { get; set; }
+
     }
 }

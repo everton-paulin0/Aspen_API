@@ -12,7 +12,8 @@ namespace Aspen_API.Persistence
 
         public DbSet<Company> Companies { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<CompanyComment> MCompanyComments { get; set; }
+        public DbSet<CompanyComment> CompanyComments { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
