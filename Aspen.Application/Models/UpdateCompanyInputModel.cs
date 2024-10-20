@@ -1,6 +1,6 @@
-﻿using Aspen_API.Enums;
+﻿using Core.Enums;
 
-namespace Aspen_API.Models
+namespace Application.Models
 {
     public class UpdateCompanyInputModel
     {

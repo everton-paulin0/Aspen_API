@@ -1,7 +1,7 @@
-﻿using Aspen_API.Entities;
+﻿using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Aspen_API.Persistence
+namespace Infrastructure.Persistence
 {
     public class AspenDbContext : DbContext
     {

@@ -1,4 +1,4 @@
-﻿namespace Aspen_API.Entities
+﻿namespace Core.Entities
 {
     public class CompanyComment : BaseEntity
     {

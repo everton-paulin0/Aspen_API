@@ -1,4 +1,4 @@
-﻿namespace Aspen_API.Enums
+﻿namespace Core.Enums
 {
     public enum CompanyStatusEnum
     {

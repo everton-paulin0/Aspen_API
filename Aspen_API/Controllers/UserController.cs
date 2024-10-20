@@ -1,10 +1,9 @@
-﻿using Aspen_API.Entities;
-using Aspen_API.Models;
-using Aspen_API.Persistence;
-using Microsoft.AspNetCore.Http;
+﻿using Application.Models;
+using Core.Entities;
+using Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Aspen_API.Controllers
+namespace Infrastructure.Controllers
 {
     [Route("api/users")]
     [ApiController]

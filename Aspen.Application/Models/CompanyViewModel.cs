@@ -1,7 +1,7 @@
-﻿using Aspen_API.Entities;
+﻿using Core.Entities;
 using System.Xml.Linq;
 
-namespace Aspen_API.Models
+namespace Application.Models
 {
     public class CompanyViewModel
     {

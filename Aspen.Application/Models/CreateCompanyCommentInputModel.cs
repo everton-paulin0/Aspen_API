@@ -1,4 +1,4 @@
-﻿namespace Aspen_API.Models
+﻿namespace Application.Models
 {
     public class CreateCompanyCommentInputModel
     {

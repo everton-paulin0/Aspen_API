@@ -1,7 +1,7 @@
-﻿using Aspen_API.Entities;
-using Aspen_API.Enums;
+﻿using Core.Entities;
+using Core.Enums;
 
-namespace Aspen_API.Models
+namespace Application.Models
 {
     public class CreateCompanyInputModel
     {
@@ -12,6 +12,7 @@ namespace Aspen_API.Models
         public string CompanyState { get; set; }
         public string CompanyZipCode { get;set; }
         public string CompanyEmail { get; set; }
+        public CompanyStatusEnum Status {  get; set; }
         public int IdUser { get; set; }
         public int IdContactPerson { get; set; }
 

@@ -1,7 +1,7 @@
-﻿using Aspen_API.Entities;
-using Aspen_API.Enums;
+﻿using Core.Entities;
+using Core.Enums;
 
-namespace Aspen_API.Models
+namespace Application.Models
 {
     public class CompanyItemModel
     {

@@ -1,6 +1,6 @@
-﻿using Aspen_API.Entities;
+﻿using Core.Entities;
 
-namespace Aspen_API.Models
+namespace Application.Models
 {
     public class UserViewModel
     {
@@ -25,7 +25,7 @@ namespace Aspen_API.Models
         {
             var comments = user.Comments.Select(u=> u.Content).ToList();
 
-            return new User(user.FullName, user.Email, user.BirthDate, user.MobilePhone, user.IdCompany);
+            return new (user.FullName, user.Email, user.BirthDate, user.MobilePhone, user.IdCompany);
         }
     }
 }
