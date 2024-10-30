@@ -1,6 +1,5 @@
 ﻿using Application.Models;
 using Aspen.Application.Services.Interfaces;
-using Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -10,11 +9,10 @@ namespace Infrastructure.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        private readonly AspenDbContext _context;
+        
         private readonly ICompanyService _service;
-        public CompanyController( AspenDbContext context, ICompanyService service)
+        public CompanyController(ICompanyService service)
         {
-            _context = context;
             _service = service;
         }
         [HttpPost]

@@ -8,11 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Aspen.Core\Aspen.Core.csproj" />
     <ProjectReference Include="..\Aspen.Infrastructure\Aspen.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Queries\GetAllCompany\" />
+    <Folder Include="Queries\GetByIdCompany\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
 
 </Project>
