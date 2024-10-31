@@ -1,24 +1,22 @@
 ﻿using Application.Models;
+using Aspen.Application.Commands.InsertCompany;
 using Aspen.Application.Models;
 using Aspen.Application.Services.Interfaces;
 using Core.Entities;
 using Infrastructure.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace Aspen.Application.Services
 {
-    internal class CompanyService : ICompanyService
+    public class CompanyService : ICompanyService
     {
         private readonly AspenDbContext _context;
         public CompanyService(AspenDbContext context)
         {
             _context = context;
         }
-        public ResultViewModel Delete (int id)
+        public ResultViewModel Delete(int id)
         {
             var company = _context.Companies.SingleOrDefault(c => c.Id == id);
 
@@ -102,5 +100,7 @@ namespace Aspen.Application.Services
             return ResultViewModel.Sucess();
 
         }
+
+        
     }
 }

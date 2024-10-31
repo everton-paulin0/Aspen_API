@@ -1,11 +1,8 @@
-﻿using Aspen.Application.Services;
+﻿using Aspen.Application.Commands.InsertCompany;
+using Aspen.Application.Services;
 using Aspen.Application.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Aspen.Application
 {
@@ -13,7 +10,9 @@ namespace Aspen.Application
     {
         public static IServiceCollection AddAplication(this IServiceCollection services)
         {
-            services.AddServices();
+            services
+                .AddServices()
+                .AddHandlers();
 
             return services;
         }
@@ -25,5 +24,14 @@ namespace Aspen.Application
             return services;
         }
 
-    }
+        private static IServiceCollection AddHandlers(this IServiceCollection services)
+        {
+            services.AddMediatR(config =>
+            config.RegisterServicesFromAssemblyContaining<InsertCompanyCommand>());
+
+            return services;
+
+        }
+
+}
 }

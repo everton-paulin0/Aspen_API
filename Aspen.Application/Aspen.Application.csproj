@@ -16,10 +16,4 @@
     <ProjectReference Include="..\Aspen.Infrastructure\Aspen.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Queries\GetAllCompany\" />
-    <Folder Include="Queries\GetByIdCompany\" />
-    <Folder Include="Queries\" />
-  </ItemGroup>
-
 </Project>

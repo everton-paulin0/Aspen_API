@@ -1,5 +1,6 @@
 ﻿using Application.Models;
 using Aspen.Application.Services.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -11,9 +12,11 @@ namespace Infrastructure.Controllers
     {
         
         private readonly ICompanyService _service;
-        public CompanyController(ICompanyService service)
+        private readonly IMediator _mediator;
+        public CompanyController(ICompanyService service, IMediator mediator)
         {
             _service = service;
+            _mediator = mediator;
         }
         [HttpPost]
         public IActionResult Post(CreateCompanyInputModel model)
