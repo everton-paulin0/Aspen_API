@@ -17,7 +17,7 @@ Validações:
 Implementar validações em todos os campos, garantindo consistência nos dados.
 Requisitos Técnicos:
 Entity Framework (In-Memory) para persistência dos dados:
-Criar e aplicar migrations para a base de dados.
+
 Implementar os seguintes princípios e padrões:
 Injeção de dependência;
 Inversão de controle;
