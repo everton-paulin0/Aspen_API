@@ -15,7 +15,7 @@ namespace Aspen.Application.Queries.GetAllCompany
         }
         public async Task<ResultViewModel<List<CompanyItemModel>>> Handle(GetAllCompaniesQuery request, CancellationToken cancellationToken)
         {
-            var companies = await _context.Companies.Where(c => !c.IsDeleted).ToListAsync();
+            var companies = await _context.Companies.Include(c => c.Comments).Include(c => c.IdUser).Where(c => !c.IsDeleted).ToListAsync();
 
             var model = companies.Select(CompanyItemModel.FromEntity).ToList();
 

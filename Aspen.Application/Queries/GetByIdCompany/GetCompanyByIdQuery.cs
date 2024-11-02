@@ -1,24 +1,19 @@
 ﻿using Application.Models;
 using Aspen.Application.Models;
-using Aspen.Application.Queries.GetAllCompany;
 using Infrastructure.Persistence;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Aspen.Application.Queries.GetByIdCompany
 {
     public class GetCompanyByIdQuery : IRequest<ResultViewModel<CompanyViewModel>>
     {
-        public GetCompanyByIdQuery()
+        public GetCompanyByIdQuery(int id)
         {
             Id = Id;
         }
+
         public int Id { get; set; }        
     }
 
@@ -32,7 +27,7 @@ namespace Aspen.Application.Queries.GetByIdCompany
         public async Task<ResultViewModel<CompanyViewModel>> Handle(GetCompanyByIdQuery request, CancellationToken cancellationToken)
         {
 
-            var company = await _context.Companies.SingleOrDefaultAsync(c => c.Id == request.Id);
+            var company = await _context.Companies.Include(c => c.Comments).Include(c => c.IdUser).SingleOrDefaultAsync(c => c.Id == request.Id);
 
             if (company == null)
             {

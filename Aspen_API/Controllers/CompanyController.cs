@@ -1,4 +1,10 @@
 ﻿using Application.Models;
+using Aspen.Application.Commands.DeleteCompany;
+using Aspen.Application.Commands.InsertComments;
+using Aspen.Application.Commands.InsertCompany;
+using Aspen.Application.Commands.UpdateCompany;
+using Aspen.Application.Queries.GetAllCompany;
+using Aspen.Application.Queries.GetByIdCompany;
 using Aspen.Application.Services.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -19,25 +25,33 @@ namespace Infrastructure.Controllers
             _mediator = mediator;
         }
         [HttpPost]
-        public IActionResult Post(CreateCompanyInputModel model)
+        public async Task<IActionResult> Post(InsertCompanyCommand command)
         {
-            var result = _service.Insert(model);
+            var result = await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(GetById), new { id = result.Data }, model);
+            if(!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return CreatedAtAction(nameof(GetById), new { id = result.Data }, command);
         }
 
         [HttpGet]
-        public IActionResult GetAll(string search = "")
+        public async Task<IActionResult> GetAll(string search = "")
         {
-            var result = _service.GetAll();
+           var query = new GetAllCompaniesQuery();
+
+            var result = await _mediator.Send(query);
 
             return Ok(result);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var result = _service.GetById(id);
+            var result = await _mediator.Send(new GetCompanyByIdQuery(id));
+
             if (!result.IsSucess) 
             {
                 return BadRequest(result.Message);
@@ -47,9 +61,9 @@ namespace Infrastructure.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, UpdateCompanyInputModel model)
+        public async Task<IActionResult> Put(int id, UpdateCompanyCommand command)
         {
-            var result = _service.Update(model);
+            var result = await _mediator.Send(command);
 
             if(!result.IsSucess)
             {
@@ -61,9 +75,9 @@ namespace Infrastructure.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteById(int id)
+        public async Task<IActionResult> DeleteById(int id)
         {
-            var result = _service.Delete(id);
+            var result = await _mediator.Send(new DeleteCompanyCommand(id));
 
             if (!result.IsSucess)
             {
@@ -74,9 +88,9 @@ namespace Infrastructure.Controllers
         }
 
         [HttpPost("{id}/comments")]
-        public IActionResult PostComment(int id, CreateCompanyCommentInputModel model)
+        public async Task<IActionResult> PostComment(int id, InsertCommentCommand command)
         {
-            var result = _service.InsertComments(id, model);
+            var result = await _mediator.Send(command);
 
             if (!result.IsSucess)
             {

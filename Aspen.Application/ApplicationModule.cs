@@ -1,6 +1,9 @@
-﻿using Aspen.Application.Commands.InsertCompany;
+﻿using Aspen.Application.Commands.InsertComments;
+using Aspen.Application.Commands.InsertCompany;
+using Aspen.Application.Models;
 using Aspen.Application.Services;
 using Aspen.Application.Services.Interfaces;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -28,6 +31,8 @@ namespace Aspen.Application
         {
             services.AddMediatR(config =>
             config.RegisterServicesFromAssemblyContaining<InsertCompanyCommand>());
+
+            services.AddTransient<IPipelineBehavior<InsertCompanyCommand, ResultViewModel<int>>, ValidateInsertCompanyCommand>();
 
             return services;
 
