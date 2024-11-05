@@ -3,6 +3,8 @@ using Aspen.Application.Commands.InsertCompany;
 using Aspen.Application.Models;
 using Aspen.Application.Services;
 using Aspen.Application.Services.Interfaces;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +17,7 @@ namespace Aspen.Application
         {
             services
                 .AddServices()
+                .AddValidation()
                 .AddHandlers();
 
             return services;
@@ -36,6 +39,13 @@ namespace Aspen.Application
 
             return services;
 
+        }
+
+        private static IServiceCollection AddValidation (this IServiceCollection services)
+        {
+            services.AddFluentValidationAutoValidation().AddValidatorsFromAssemblyContaining<InsertCompanyCommand>();
+
+            return services;
         }
 
 }
